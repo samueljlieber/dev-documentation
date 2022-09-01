@@ -11,7 +11,6 @@ Localizations
    localizations/australia
    localizations/chile
    localizations/colombia
-   localizations/colombia_ES
    localizations/france
    localizations/germany
    localizations/indonesia
