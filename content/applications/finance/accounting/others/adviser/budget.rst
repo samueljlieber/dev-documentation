@@ -1,17 +1,17 @@
-=========================
-Manage a financial budget
-=========================
+================
+Financial budget
+================
 
 Managing budgets is an essential part of running a business. Budgets help people become more
 intentional with how money is spent and direct people to organize and prioritize their work to meet
-financial goals. They allow you to plan your desired financial outcome and then measure your actual
-performance against the plan. Odoo manages budgets using both general and analytic accounts.
+financial goals. They allow the planning of a desired financial outcome and then measure the actual
+performance against the plan. Odoo manages budgets using both **general** and **analytic accounts**.
 
 Configuration
 =============
 
-Go to :menuselection:`Accounting --> Configuration --> Settings --> Analytics` and enable
-:guilabel:`Budget Management`.
+From the Accounting app, go to :menuselection:`Configuration --> Settings --> Analytics section` and
+enable :guilabel:`Budget Management`.
 
 Budgetary positions
 -------------------
@@ -19,56 +19,69 @@ Budgetary positions
 Budgetary positions are lists of accounts for which you want to keep budgets (typically expense or
 income accounts).
 
-To define budgetary positions go to :menuselection:`Accounting --> Configuration --> Budgetary positions`.
+To define budgetary positions, go to :menuselection:`Configuration --> Management: Budgetary
+Positions` and :guilabel:`New`. Add a :guilabel:`Name` to your budgetary position and select the
+:guilabel:`Company` it applies to. Click :guilabel:`Add a line` to add one or more accounts.
 
-Each budgetary position can have any number of accounts from the chart of accounts, though it must
-have at least one.
+.. note::
+   Each budgetary position can have any number of accounts from the chart of accounts, though it
+   must have at least one.
 
 Use case
 ========
 
-Let’s illustrate this with an example: we just started a project with Smith & Co, and we would like
-to budget the income and expenses of that project.
+Let’s illustrate this with an example.
 
-We plan to have a revenue of 1000, and we don’t want to spend more than 700.
+We just started a project with *Smith & Co*, and we would like to budget the income and expenses of
+that project. We plan on having a revenue of 1000, and we don’t want to spend more than 700.
 
 First, we need to define what accounts relate to our project’s expenses. Go to
-:menuselection:`Accounting --> Configuration --> Budgetary positions` and :guilabel:`Create` a
-position and add the accounts wherein we will book our expenses.
+:menuselection:`Configuration --> Management: Budgetary positions`, and click :guilabel:`New` to add
+a position. Add the accounts wherein expenses will be booked.
 
 .. image::  budget/smith-and-co-expenses.png
-  :align: center
+   :align: center
+   :alt: display the Smith and Co expenses
 
-Now, let's repeat the steps to create a budgetary position that reflects the revenue.
+Let's repeat the steps to create a budgetary position that reflects the revenue.
 
 .. image::  budget/smith-and-co-revenue.png
-  :align: center
+   :align: center
+   :alt: display the Smith and Co revenue
 
 Analytical accounts
 -------------------
 
-Odoo needs to know which costs or expenses are relevant to a specified budget because the above
-general accounts may be used for various different projects.
-To do so we need to link our invoices and expenses to a defined analytical account:
-Go to :menuselection:`Accounting --> Configuration --> Analytic Accounts` and :guilabel:`Create` a
-new :guilabel:`Analytic Account` called Smith & Co.
+Odoo needs to know which costs or expenses are relevant to a specified budget, as the above general
+accounts may be used for different projects. Go to :menuselection:`Configuration --> Analytic
+Accounting: Analytic Accounts` and click :guilabel:`New` to add a new **Analytic Account** called
+*Smith & Co*.
 
-Each budgetary position can have any number of accounts from the general 
-ledger (the main chart of accounts) assigned to it, though it must have at least one.  
+The :guilabel:`Plan` field has to be completed. Plans group multiple analytic accounts, they are
+used to distribute costs and benefits to analyse business performance. :guilabel:`Analytic Plans`
+can be created or configured by going to :menuselection:`Configuration --> Analytic Accounting:
+Analytic Plans`.
+
+When creating a new customer invoice and/or vendor bill, you have to refer to this analytic account.
+
+.. image:: budget/analytic-accounts.png
+   :align: center
+   :alt: add analytic accounts in a new invoice or bill.
 
 Define the budget
 -----------------
 
-Let’s now set our targets. We specified that we expect to gain 1000 with this project and we would
-like not to spend more than 700. Go to :menuselection:`Accounting --> Budgets` and :guilabel:`Create`
-a new budget.
+Let’s set our targets. We specified that we expect to gain 1000 with this project, and we would like
+not to spend more than 700. Go to :menuselection:`Accounting --> Management: Budgets` and click
+:guilabel:`New` to create a new budget for *Smith & Co* project.
 
 First, fill in your :guilabel:`Budget Name`. Then, select the :guilabel:`Period` wherein the budget
 is applicable. Next, add the :guilabel:`Budgetary Position` you want to track, define the related
 :guilabel:`Analytic Account`, and add the :guilabel:`Planned Amount`.
 
-.. image:: define-the-budget.png
+.. image:: budget/define-the-budget.png
    :align: center
+   :alt: budget lines display
 
 .. Note::
    When recording a planned amount related to expenses, the amount must be negative.
@@ -76,20 +89,13 @@ is applicable. Next, add the :guilabel:`Budgetary Position` you want to track, d
 Check your budget
 -----------------
 
-You can check your budget at any time to see how it evolves.
+Go to :menuselection:`Accounting --> Management: Budgets` and find the *Smith & Co* Project to see
+how it evolves according to the expenses or income for the related analytic account.
 
-.. tip:: If you use analytical accounts remember that you need to specify this analytic account in
-   the invoice and/or purchase line.
+The :guilabel:`Practical Amount` evolves when a new journal entry related to an accounts from your
+budgetary position and your analytic account is created.
 
-.. seealso:: For more information about booking invoices and purchase orders see Invoicing processes
-
-Go back in the budget list and find the Smith & CO Project.
-
-.. note::
-   - The :guilabel:`Theoretical amount` represents the amount of money you theoretically could have spend
-or should have received in function of the date.
-
-When your budget is 1200 for 12 months (january to december), and today is 31 of january, the
-theoretical amount will be 100, since this is the actual amount that could have been realised.
-- The :guilabel:`Practical amount` evolves when a new journal entry related to an accounts from your
-budgetary position and your analytic account.
+The :guilabel:`Theoretical Amount` represents the amount of money you theoretically could have spent
+or should have received based on the date. For example, if your budget is 1200 for 12 months
+(January to December), and today is 31 of January, the theoretical amount will be 100, since this is
+the actual amount that could have been made.
