@@ -921,8 +921,8 @@ Symbols and Conventions
 
 .. _contributing/development/js_guidelines:
 
-Javascript and CSS
-==================
+Javascript
+==========
 
 Static files organization
 --------------------------
@@ -969,14 +969,476 @@ More precise JS guidelines are detailed in the `github wiki  <https://github.com
 You may also have a look at existing API in Javascript by looking Javascript
 References.
 
-CSS coding guidelines
+SCSS and CSS
+============
+
+Syntax and Formatting
 ---------------------
 
-- Prefix all your classes with *o_<module_name>* where *module_name* is the
-  technical name of the module ('sale', 'im_chat', ...) or the main route
-  reserved by the module (for website module mainly, i.e. : 'o_forum' for
-  *website_forum* module). The only exception for this rule is the
-  webclient: it simply uses *o_* prefix.
-- Avoid using *id* tag
-- Use Bootstrap native classes
-- Use underscore lowercase notation to name class
+.. tabs::
+
+   .. code-tab:: html SCSS
+
+      .o_foo, .o_foo_bar, .o_baz {
+         height: $o-statusbar-height;
+
+         .o_qux {
+            height: $o-statusbar-height * 0.5;
+         }
+      }
+
+      .o_corge {
+         background: $o-list-footer-bg-color;
+      }
+
+   .. code-tab:: css CSS
+
+      .o_foo, .o_foo_bar, .o_baz {
+         height: 32px;
+      }
+
+      .o_foo .o_quux, .o_foo_bar .o_quux, .o_baz .o_qux {
+         height: 16px;
+      }
+
+      .o_corge {
+         background: #EAEAEA;
+      }
+
+- four (4) space indents, no tabs;
+- columns of max. 80 characters wide;
+- opening brace (`{`): empty space after the last selector;
+- closing brace (`}`): on its own new line;
+- one line for each declaration;
+- meaningful use of whitespace.
+
+
+.. spoiler:: Suggested Stylelint settings
+
+   .. code-block:: html
+
+    "stylelint.config": {
+        "rules": {
+            // https://stylelint.io/user-guide/rules
+
+            // Avoid errors
+            "block-no-empty": true,
+            "shorthand-property-no-redundant-values": true,
+            "declaration-block-no-shorthand-property-overrides": true,
+
+            // Stylistic conventions
+            "indentation": 4,
+
+            "function-comma-space-after": "always",
+            "function-parentheses-space-inside": "never",
+            "function-whitespace-after": "always",
+
+            "unit-case": "lower",
+
+            "value-list-comma-space-after": "always-single-line",
+
+            "declaration-bang-space-after": "never",
+            "declaration-bang-space-before": "always",
+            "declaration-colon-space-after": "always",
+            "declaration-colon-space-before": "never",
+
+            "block-closing-brace-empty-line-before": "never",
+            "block-opening-brace-space-before": "always",
+
+            "selector-attribute-brackets-space-inside": "never",
+            "selector-list-comma-space-after": "always-single-line",
+            "selector-list-comma-space-before": "never-single-line",
+        }
+    },
+
+
+
+.. _scss/properties_order:
+
+Properties order
+----------------
+
+Order properties from the "outside" in, starting from `position` and ending with decorative rules (`font`,  `filter`, etc.).
+
+:ref:`Scoped SCSS variables <scss/scoped-scss-var>` and :ref:`CSS variables <scss/css-var>` must be placed at the very top, followed by an empty line separating them from other declarations.
+
+
+.. code-block:: html
+
+   .o_element {
+      $-inner-gap: $border-width + $legend-margin-bottom;
+
+      --element-margin: 1rem;
+      --element-size: 3rem;
+
+      @include o-position-absolute(1rem);
+      display: block;
+      margin: var(--element-margin);
+      width: calc(var(--element-size) + #{$-inner-gap});
+      border: 0;
+      padding: 1rem;
+      background: blue;
+      font-size: 1rem;
+      filter: blur(2px);
+   }
+
+Naming Conventions
+------------------
+
+Naming conventions in CSS are incredibly useful in making your code more strict, transparent and informative.
+
+| Avoid `id` selectors and prefix your classes with `o_<module_name>`, where `<module_name>` is the
+  technical name (`sale`, `im_chat`, ...) or the main route
+  reserved by the module (for website module mainly, i.e. : `o_forum` for
+  `website_forum` module).
+| The only exception for this rule is the webclient: it simply uses `o_` prefix.
+
+Avoid creating hyper-specific classes and variable names. When naming nested elements, opt for the "Grandchild" approach.
+
+.. rst-class:: bg-light
+.. example::
+
+   .. rst-class:: alert alert-danger
+   .. code-block:: html
+      :caption: Don't
+
+      <div class=“o_element_wrapper”>
+         <div class=“o_element_wrapper_entries”>
+            <span class=“o_element_wrapper_entries_entry”>
+               <a class=“o_element_wrapper_entries_entry_link”>Entry</a>
+            </span>
+         </div>
+      </div>
+
+
+   .. rst-class:: alert alert-success
+   .. code-block:: html
+      :caption: Do
+
+      <div class=“o_element_wrapper”>
+         <div class=“o_element_entries”>
+            <span class=“o_element_entry”>
+               <a class=“o_element_link”>Entry</a>
+            </span>
+         </div>
+      </div>
+
+Besides being more compact, this approach ease maintenance because limits the need of renaming when changes at the DOM occur.
+
+
+SCSS Variables
+~~~~~~~~~~~~~~
+
+Our standard convention is `$o-[root]-[element]-[property]-[modifier]`:
+
+* `$o-` - prefix;
+* `[root]` - either the component **or** the module name (components take priority);
+* `[element]` - optional identifier for inner elements;
+* `[property]` - the property/behavior defined by the variable;
+* `[modifier]` - optional modifier;
+
+.. code-block:: scss
+
+   $o-block-color: value;
+   $o-block-title-color: value;
+   $o-block-title-color-hover: value;
+
+
+.. _scss/scoped-scss-var:
+
+SCSS Variables (scoped)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+These variables are declared within blocks and are not accessible from the outside.
+Our standard convention is `$-[variable name]`.
+
+.. code-block:: html
+
+   .o_element {
+      $-inner-gap: compute-something;
+
+      margin-right: $-inner-gap;
+
+      .o_element_child {
+         margin-right: $-inner-gap * 0.5;
+      }
+   }
+
+.. seealso::
+   Variables scope on `SASS Documentation website <https://sass-lang.com/documentation/variables#scope>`__
+
+
+SCSS Mixins and Functions
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Our standard convention is `o-[name]`. Use descriptive names. When naming functions, use verbs in the imperative form (e.g.: `get`, `make`, `apply`...).
+
+Name optional arguments in the :ref:`scoped variables form <scss/scoped-scss-var>`, so `$-[argument]`
+
+.. code-block:: html
+
+   @mixin o-avatar($-size: 1.5em, $-radius: 100%) {
+      width: $-size;
+      height: $-size;
+      border-radius: $-radius;
+   }
+
+   @function o-invert-color($-color, $-amount: 100%) {
+      $-inverse: change-color($-color, $-hue: hue($-color) + 180);
+
+      @return mix($-inverse, $-color, $-amount);
+   }
+
+.. seealso::
+   - Mixins on `SASS Documentation website <https://sass-lang.com/documentation/at-rules/mixin>`__
+   - Functions on `SASS Documentation website <https://sass-lang.com/documentation/at-rules/function>`__
+
+
+.. _scss/css-var:
+
+CSS Variables
+~~~~~~~~~~~~~
+
+In Odoo the use of CSS variables is strictly DOM-related. Use them to **contextually** adapt the design and layout.
+
+Our standard convention is BEM, so `--[root]__[element]-[property]--[modifier]`.
+
+* `[root]` - either the component **or** the module name (components take priority);
+* `[element]` - optional identifier for inner elements;
+* `[property]` - the property/behavior defined by the variable;
+* `[modifier]` - optional modifier;
+
+
+.. code-block:: scss
+
+   .o_kanban_record {
+      --KanbanRecord-width: value;
+      --KanbanRecord__picture-border: value;
+      --KanbanRecord__picture-border--active: value;
+   }
+
+   // Adapt the component when rendered in another context.
+   .o_form_view {
+      --KanbanRecord-width: another-value;
+      --KanbanRecord__picture-border: another-value;
+      --KanbanRecord__picture-border--active: another-value;
+   }
+
+Use of CSS Variables
+--------------------
+
+In Odoo the use of CSS variables is strictly DOM-related, meaning that are used to **contextually** adapt the design and layout rather than to manage the global design-system.
+These are typically used when a component's properties can vary in specific contexts or in other circumstances.
+
+We define these properties inside the component's main block, providing default fallbacks.
+
+
+.. code-block:: scss
+   :caption: :file:`my_component.scss`
+
+   .o_MyComponent {
+      color: var(--MyComponent-color, #313131);
+   }
+
+.. code-block:: scss
+   :caption: :file:`my_dashboard.scss`
+
+   .o_MyDashboard {
+      // Adapt the component in this context only
+      --MyComponent-color: #017e84;
+   }
+
+.. seealso::
+   - CSS variables on `MDN web docs <https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties>`_
+
+
+CSS and SCSS Variables
+~~~~~~~~~~~~~~~~~~~~~~
+
+Despite being apparently similar, `CSS` and `SCSS` variables behave very differently.
+The main difference is that, while `SCSS` variables are **imperative** and compiled away, `CSS` variables are **declarative** and included in the final output.
+
+.. seealso::
+   - CSS/SCSS variables difference on `SASS Documentation website <https://sass-lang.com/documentation/variables#:~:text=CSS%20variables%20are%20included%20in,use%20will%20stay%20the%20same>`__
+
+
+In Odoo we take the best of both worlds, using `SCSS` variables to define the design-system while opting for `CSS` ones when it comes to contextual adaptations.
+
+The implementation of the previous example should be improved by adding SCSS variables in order to gain control at the top-level and ensure consistency with other components.
+
+
+.. code-block:: scss
+   :caption: :file:`secondary_variables.scss`
+
+   $o-component-color: $o-main-text-color;
+   $o-dashboard-color: $o-info;
+   // [...]
+
+.. code-block:: text
+   :caption: :file:`component.scss`
+
+   .o_component {
+      color: var(--MyComponent-color, #{$o-component-color});
+   }
+
+.. code-block:: text
+   :caption: :file:`dashboard.scss`
+
+   .o_dashboard {
+      --MyComponent-color: #{$o-dashboard-color};
+   }
+
+
+The `:root` pseudo-class
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Defining CSS variables on the `:root` pseudo-class is a technique we normally **don't use** in Odoo's UI.
+The practice is commonly used to access and modify CSS variables globally, we perform this using SCSS instead.
+
+Exceptions to this rule should be fairly apparent, such as templates shared across bundles that require a certain level of contextual awareness in order to be rendered properly.
+
+
+
+.. _contributing/development/git_guidelines:
+
+Git
+===
+
+Configure your git
+------------------
+
+Based on ancestral experience and oral tradition, the following things go a long
+way towards making your commits more helpful:
+
+- Be sure to define both the user.email and user.name in your local git config
+
+  .. code-block:: text
+
+     git config --global <var> <value>
+
+- Be sure to add your full name to your Github profile here. Please feel fancy
+  and add your team, avatar, your favorite quote, and whatnot ;-)
+
+Commit message structure
+------------------------
+
+Commit message has four parts: tag, module, short description and full
+description. Try to follow the preferred structure for your commit messages
+
+.. code-block:: text
+
+  [TAG] module: describe your change in a short sentence (ideally < 50 chars)
+
+  Long version of the change description, including the rationale for the change,
+  or a summary of the feature being introduced.
+
+  Please spend a lot more time describing WHY the change is being done rather
+  than WHAT is being changed. This is usually easy to grasp by actually reading
+  the diff. WHAT should be explained only if there are technical choices
+  or decision involved. In that case explain WHY this decision was taken.
+
+  End the message with references, such as task or bug numbers, PR numbers, and
+  OPW tickets, following the suggested format:
+  task-123 (related to task)
+  Fixes #123  (close related issue on Github)
+  Closes #123  (close related PR on Github)
+  opw-123 (related to ticket)
+
+Tag and module name
+-------------------
+
+Tags are used to prefix your commit. They should be one of the following
+
+- **[FIX]** for bug fixes: mostly used in stable version but also valid if you
+  are fixing a recent bug in development version;
+- **[REF]** for refactoring: when a feature is heavily rewritten;
+- **[ADD]** for adding new modules;
+- **[REM]** for removing resources: removing dead code, removing views,
+  removing modules, ...;
+- **[REV]** for reverting commits: if a commit causes issues or is not wanted
+  reverting it is done using this tag;
+- **[MOV]** for moving files: use git move and do not change content of moved file
+  otherwise Git may loose track and history of the file; also used when moving
+  code from one file to another;
+- **[REL]** for release commits: new major or minor stable versions;
+- **[IMP]** for improvements: most of the changes done in development version
+  are incremental improvements not related to another tag;
+- **[MERGE]** for merge commits: used in forward port of bug fixes but also as
+  main commit for feature involving several separated commits;
+- **[CLA]** for signing the Odoo Individual Contributor License;
+- **[I18N]** for changes in translation files;
+
+After tag comes the modified module name. Use the technical name as functional
+name may change with time. If several modules are modified, list them or use
+various to tell it is cross-modules. Unless really required or easier avoid
+modifying code across several modules in the same commit. Understanding module
+history may become difficult.
+
+Commit message header
+---------------------
+
+After tag and module name comes a meaningful commit message header. It should be
+self explanatory and include the reason behind the change. Do not use single words
+like "bugfix" or "improvements". Try to limit the header length to about 50 characters
+for readability.
+
+Commit message header should make a valid sentence once concatenated with
+``if applied, this commit will <header>``. For example ``[IMP] base: prevent to
+archive users linked to active partners`` is correct as it makes a valid sentence
+``if applied, this commit will prevent users to archive...``.
+
+Commit message full description
+-------------------------------
+
+In the message description specify the part of the code impacted by your changes
+(module name, lib, transversal object, ...) and a description of the changes.
+
+First explain WHY you are modifying code. What is important if someone goes back
+to your commit in about 4 decades (or 3 days) is why you did it. It is the
+purpose of the change.
+
+What you did can be found in the commit itself. If there was some technical choices
+involved it is a good idea to explain it also in the commit message after the why.
+For Odoo R&D developers "PO team asked me to do it" is not a valid why, by the way.
+
+Please avoid commits which simultaneously impact multiple modules. Try to split
+into different commits where impacted modules are different. It will be helpful
+if we need to revert changes in a given module separately.
+
+Don't hesitate to be a bit verbose. Most people will only see your commit message
+and judge everything you did in your life just based on those few sentences.
+No pressure at all.
+
+**You spend several hours, days or weeks working on meaningful features. Take
+some time to calm down and write clear and understandable commit messages.**
+
+If you are an Odoo R&D developer the WHY should be the purpose of the task you
+are working on. Full specifications make the core of the commit message.
+**If you are working on a task that lacks purpose and specifications please
+consider making them clear before continuing.**
+
+Finally here are some examples of correct commit messages :
+
+.. code-block:: text
+
+ [REF] models: use `parent_path` to implement parent_store
+
+  This replaces the former modified preorder tree traversal (MPTT) with the
+  fields `parent_left`/`parent_right`[...]
+
+ [FIX] account: remove frenglish
+
+  [...]
+
+  Closes #22793
+  Fixes #22769
+
+ [FIX] website: remove unused alert div, fixes look of input-group-btn
+
+  Bootstrap's CSS depends on the input-group-btn
+  element being the first/last child of its parent.
+  This was not the case because of the invisible
+  and useless alert.
+
+.. note:: Use the long description to explain the *why* not the
+          *what*, the *what* can be seen in the diff
