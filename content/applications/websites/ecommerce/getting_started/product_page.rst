@@ -1,6 +1,6 @@
-============================
+===========================
 How to build a product page
-============================
+===========================
 
 On the website click *New Page* in the top-right corner.
 

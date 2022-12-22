@@ -36,6 +36,7 @@ le terme « les Parties ».
 
 1 Objectif
 ==========
+
 L’objectif de ce Contrat est de présenter les conditions auxquelles ODOO fournit des services au
 PARTENAIRE et l’accès au logiciel Odoo Enterprise Edition, et en vertu desquelles le PARTENAIRE
 se plie aux obligations énoncées ci-après.
@@ -50,16 +51,17 @@ services sur d’autres versions du logiciel, comme « Odoo Community Edition 
 
 2 Durée du Contrat
 ==================
+
 Ce Contrat restera en vigueur pendant un an (la « Durée ») à compter de la date de la signature.
 Il est automatiquement renouvelé pour une Durée équivalente, à moins qu’une partie transmette
 à l’autre partie une dénonciation écrite au moins 30 jours avant la fin de la Durée.
-
 
 3 Accès à Odoo Enterprise Edition
 =================================
 
 3.1 Accès à la plate-forme projet
 ---------------------------------
+
 Pour aider le PARTENAIRE à promouvoir Odoo Enterprise Edition, ODOO octroie au PARTENAIRE l’accès
 à son dépôt de code pour toutes les « Apps Odoo Enterprise Edition » sous les conditions
 présentées dans :ref:`appendix_p_a_fr` et les conditions reprises dans ce Contrat.
@@ -71,6 +73,7 @@ but de test et de développement.
 
 3.2 Restrictions
 ----------------
+
 Le PARTENAIRE s’engage à maintenir la confidentialité du code source des Apps Odoo Enterprise
 Edition au sein de son personnel. L’accès au code source d’Odoo Enterprise Edition pour les clients
 est régi par l'Odoo Enterprise Subscription Agreement.
@@ -88,6 +91,7 @@ et recueillir les données statistiques nécessaires à cette fin.
 
 4.1 Niveaux de partenariat
 --------------------------
+
 Le programme partenaire d’Odoo consiste en deux types de partenariat et quatre niveaux.
 Le type “Learning Partners” est prévu les sociétés souhaitent démarrer la
 mise en oeuvre d'Odoo, mais sans la visibilité d'un partenaire officiel, en attendant d'acquérir
@@ -126,7 +130,6 @@ niveau pour lequel les 3 exigences sont atteintes.
 
 Cependant les "Official Partners" pourront monter de niveau de partenariat dès qu’ils répondent
 aux 3 exigences pour ce niveau.
-
 
 .. _benefits_fr:
 
@@ -190,6 +193,7 @@ Les avantages de chaque niveau de partenariat sont détaillés dans le tableau c
 
 4.3 Reconnaissance du partenaire
 --------------------------------
+
 ODOO promouvra les "Official Partners" dans la liste des partenaires Odoo sur odoo.com.
 
 ODOO octroie au PARTENAIRE, sur une base non exclusive, le droit d’utiliser et de reproduire
@@ -203,6 +207,7 @@ raison et par quelque moyen que ce soit.
 
 4.4 Avantages formation
 -----------------------
+
 Le PARTENAIRE a accès à la base de connaissances d’ODOO pour toute la durée de ce Contrat.
 La base de connaissance d’ODOO est une plateforme en ligne reprenant une série de documents
 commerciaux, marketing et de documentation sur les fonctionnalités, pour aider le PARTENAIRE
@@ -217,6 +222,7 @@ souscrivant à un Odoo Success Pack, moyennant un supplément.
 
 4.5 Commissions sur les Services Odoo vendus par le PARTENAIRE
 --------------------------------------------------------------
+
 Pour les services ODOO achetés par un client par le biais du PARTENAIRE, et pour autant que
 le PARTENAIRE maintienne une relation contractuelle avec ce client, le PARTENAIRE
 recevra une commission en fonction du tableau de la section :ref:`benefits_fr` et du niveau de
@@ -240,18 +246,18 @@ PARTENAIRE.
 .. [#pcom_fr1] “Collaborer avec un Partenaire Odoo” et “Modules Supplémentaires Couverts” sont
    définis dans le contrat "Odoo Enterprise Subscription Agreement" entre ODOO et le client.
 
-
 5 Frais
 =======
+
 Le PARTENAIRE s’engage à payer les frais annuels de Partenariat à la réception de la facture
 annuelle envoyée par ODOO. Ces frais seront spécifiés par écrit au moment de la signature de ce
 Contrat.
 
 Le PARTENAIRE accepte que les frais de partenariat susmentionnés ne soient pas remboursables.
 
-
 6 Résiliation
 =============
+
 Dans le cas où l’une des Parties ne remplirait pas l’une des obligations mentionnées ici et qu’un
 tel manquement ne serait remédié dans les 30 jours calendrier suivant la communication écrite
 d’un tel manquement, la Partie non fautive peut mettre un terme immédiat à ce Contrat.
@@ -262,6 +268,7 @@ Maintien des dispositions:
 
 6.1 Conséquences de la résiliation
 ----------------------------------
+
 À l’expiration ou la résiliation de ce Contrat, le PARTENAIRE :
  - n’utilisera plus le matériel et le nom de marque d’Odoo et ses marques déposées, et ne revendiquera plus l’existence
    d’un partenariat ou d’une relation quelconque avec ODOO ;
@@ -273,6 +280,7 @@ Maintien des dispositions:
 
 7 Responsabilité et Indemnités
 ==============================
+
 Les deux Parties sont liées par l’obligation de moyens ci-après.
 
 Dans les limites autorisées par la loi, la responsabilité d’ODOO pour quelque réclamation, perte,
@@ -291,7 +299,6 @@ de ce Contrat.
 Le PARTENAIRE comprend qu’il n’a aucune attente et n’a reçu aucune assurance qu’un investissement
 effectué dans l’exécution de ce Contrat et du Programme de partenariat d’Odoo sera récupéré ou
 recouvert ou qu’il obtiendra un quelconque montant de bénéfices anticipé en vertu de ce Contrat.
-
 
 8 Image de marque
 =================
@@ -312,9 +319,9 @@ de quelque façon que ce soit, dans l’exécution de ce Contrat.
 
 Le non-respect des dispositions de cette section sera une cause de résiliation du Contrat.
 
-
 8.1 Publicité
 -------------
+
 Le PARTENAIRE octroie à ODOO un droit non exclusif d’utilisation du nom ou de la marque déposée
 du PARTENAIRE dans des communiqués de presse, annonces publicitaires ou autres annonces publiques.
 
@@ -334,6 +341,7 @@ la somme de 30 000,00 (trente mille) euros (€).
 
 8.3 Contracteurs indépendants
 -----------------------------
+
 Les Parties sont des contracteurs indépendants et ce Contrat ne sera pas interprété comme
 constituant une Partie comme partenaire, joint-venture ou fiduciaire de l’autre ni créant tout
 autre forme d’association légale qui imposerait à l’une des Parties la responsabilité pour
@@ -344,6 +352,7 @@ l’autorité (expresse ou implicite) de créer quelque devoir ou obligation que
 
 9 Loi applicable et compétence
 ==============================
+
 Ce Contrat sera gouverné par et interprété en accord avec la loi belge. Tout litige naissant
 en lien avec le Contrat et pour lequel aucun règlement à l’amiable ne peut être trouvé sera
 finalement réglé par les Tribunaux de Belgique à Nivelles.

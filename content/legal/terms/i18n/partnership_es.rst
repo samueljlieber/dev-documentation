@@ -37,6 +37,7 @@ ODOO y EL COLABORADOR se denominan individualmente “Parte” y conjuntamente �
 
 1 Objeto
 ========
+
 El presente contrato tiene por objeto regular las condiciones bajo las cuales ODOO presta servicios
 a EL COLABORADOR, acceso al software Odoo Enterprise Edition, y bajo las cuales EL COLABORADOR
 cumple con las obligaciones establecidas a continuación.
@@ -52,15 +53,17 @@ como “Odoo Community Edition”, en caso de ser necesario.
 
 2 Duración del Contrato
 =======================
+
 La duración de este contrato será de un año ("la Duración") a partir de la fecha de la firma.
 Se renueva automáticamente por una duración igual, a menos que cualquiera de las partes notifique
 por escrito a la otra parte su terminación como mínimo 30 días antes del final de la duración.
 
 3 Acceso a Odoo Enterprise Edition
-===================================
+==================================
 
 3.1 Acceso a la plataforma del proyecto
 ---------------------------------------
+
 Para ayudar a EL COLABORADOR a promover Odoo Enterprise Edition, ODOO otorga a EL COLABORADOR
 acceso a su repositorio de código del proyecto para todas las “Aplicaciones Odoo Enterprise Edition”,
 en los términos establecidos en :ref:`appendix_p_a_es` y las condiciones restringidas del presente
@@ -74,6 +77,7 @@ y desarrollo.
 
 3.2 Restricciones
 -----------------
+
 EL COLABORADOR se compromete a mantener la confidencialidad del código fuente de las aplicaciones
 Odoo Enterprise Edition entre su personal. El acceso al código fuente de Odoo Enterprise Edition
 para los clientes se rige por el Contrato de suscripción de Odoo Enterprise.
@@ -93,6 +97,7 @@ Edition y para recopilar estadísticas necesarias para este fin.
 
 4.1 Niveles de colaboración
 ---------------------------
+
 El programa de socios de Odoo consta de dos tipos de asociaciones y cuatro niveles;
 "Learning Partners" es para empresas que desean todo lo necesario para comenzar a implementar Odoo,
 sin visibilidad como socio oficial hasta que obtengan la experiencia requerida;
@@ -192,6 +197,7 @@ En la tabla siguiente se describen los detalles de las ventajas para cada nivel 
 
 4.3 Reconocimiento de socios
 ----------------------------
+
 ODOO promocionará EL COLABORADOR como socio oficial en el sitio web oficial (odoo.com).
 
 ODOO concede a EL COLABORADOR, de forma no exclusiva, el derecho a usar y reproducir el logotipo
@@ -205,6 +211,7 @@ por cualquier motivo y por cualquier medio.
 
 4.4 Ventajas de la formación
 ----------------------------
+
 EL COLABORADOR tiene acceso a la base de conocimiento de ODOO durante la duración de este Contrato.
 La base de conocimiento de ODOO es una plataforma electrónica en línea que contiene un conjunto de
 documentos comerciales, funcionales y de marketing para ayudar a EL COLABORADOR a adquirir
@@ -219,14 +226,15 @@ suscribiéndose a un Success Pack de Odoo, por una tarifa adicional.
 
 4.5  Comisiones por los servicios de Odoo vendidos por EL COLABORADOR
 ---------------------------------------------------------------------
+
 Para los servicios ODOO comprados por un cliente a través de EL COLABORADOR, y siempre que el
 PARTNER mantenga una relación contractual con el cliente correspondiente, EL COLABORADOR
 ecibirá una comisión de acuerdo con la tabla de la sección :ref:`benefits_es` y su nivel de
 asociación en la fecha de la factura del cliente.
 
-
 5 Tarifas
 =========
+
 EL COLABORADOR se compromete a pagar la tarifa de la colaboración al recibir la factura anual
 enviada por ODOO. La tarifa se especificará por escrito al momento de la firma de este contracto.
 
@@ -234,6 +242,7 @@ EL COLABORADOR reconoce que la tarifa de colaboración mencionadas anteriormente
 
 6 Resolución
 ============
+
 En el caso de que cualquiera de las Partes no cumpla con cualquiera de sus obligaciones que se
 derivan de este documento, y si tal incumplimiento no se ha rectificado en un período de 30 días
 naturales a partir de la notificación por escrito de dicho incumplimiento, la Parte que no
@@ -245,6 +254,7 @@ Disposiciones subsistentes:
 
 6.1 Consecuencia de la resolución
 ---------------------------------
+
 En el momento de la resolución de este contrato, EL COLABORADOR:
  - no deberá utilizar más los materiales y/o la marca Odoo ni reclamar la existencia de ninguna
    colaboración o relación con ODOO;
@@ -255,6 +265,7 @@ En el momento de la resolución de este contrato, EL COLABORADOR:
 
 7 Responsabilidad e indemnizaciones
 ===================================
+
 Ambas Partes están vinculadas por una obligación de medios aquí descrita.
 
 En la medida máxima permitida por la ley, la responsabilidad de ODOO por cualquier reclamo,
@@ -273,9 +284,9 @@ EL COLABORADOR reconoce que no tiene ninguna expectativa y que no ha recibido ga
 ninguna inversión realizada en la ejecución de este contrato y el programa de socios de Odoo o de
 obtener ninguna cantidad anticipada de ganancias en virtud de este contrato.
 
-
 8 Imagen de marca
 =================
+
 La marca "Odoo" (incluida la palabra y sus representaciones visuales y logotipos) es exclusiva
 propiedad de ODOO.
 
@@ -291,9 +302,9 @@ Parte en el cumplimiento de este contrato.
 
 El incumplimiento de las disposiciones de esta sección será causa de resolución de este Contrato.
 
-
 8.1 Publicidad
 --------------
+
 EL COLABORADOR concede a ODOO el derecho no exclusivo de utilizar el nombre y las marcas
 comerciales de EL COLABORADOR en comunicados de prensa, promociones u otros anuncios públicos.
 En concreto, EL COLABORADOR acepta que se le mencione, y que el logotipo y la marca comercial
@@ -303,6 +314,7 @@ de EL COLABORADOR se use solo para este fin, en la lista oficial de socios de OD
 
 8.2 No captación o contratación
 -------------------------------
+
 Excepto cuando la otra Parte dé su consentimiento por escrito, cada Parte, sus afiliados y
 representantes acuerdan no captar u ofrecer empleo a ningún empleado de la otra Parte
 que participe en la realización o uso de los servicios de este contrato,
@@ -312,20 +324,20 @@ En caso de cualquier incumplimiento de las condiciones de esta sección que cond
 dicho empleado con este objetivo, la Parte incumplidora se compromete a pagar a la otra parte
 la cantidad de 30 000,00 EUR (€) (treinta mil euros).
 
-
 8.3  Contratistas independientes
 --------------------------------
+
 Las Partes son contratistas independientes, y este contrato no debe interpretarse como la
 configuración de cualquier Parte como socia, empresa conjunta o fiduciaria de la otra,
 como la creación de otra forma de asociación legal que exigiría responsabilidad a una Parte por
 la acción o la falta de acción de la otra, o como la prestación a cada Parte del derecho,
 poder o autoridad (expresa o implícita) para crear cualquier deber u obligación de la otra.
 
-
 .. _gov_law_es:
 
 9  Ley y jurisdicción aplicables
-=================================
+================================
+
 Este contrato se rige y se interpreta de acuerdo con las leyes de Bélgica.
 Todas las disputas que surjan en relación con este contrato para las que no se pueda encontrar una
 solución amistosa serán resueltas definitivamente en los Tribunales de Bélgica en Nivelles.

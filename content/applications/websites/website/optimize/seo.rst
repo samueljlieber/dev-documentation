@@ -37,6 +37,7 @@ be downgraded by search engines.
 
 Keywords
 --------
+
 In order to write quality content and boost your traffic, Odoo provides
 a ``<keyword>`` finder. Those keywords are the searches you want to head
 towards your website. For each keyword, you see how it is used in the content

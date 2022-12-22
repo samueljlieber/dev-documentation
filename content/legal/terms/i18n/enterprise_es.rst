@@ -378,6 +378,7 @@ además:
 
 6.2 No solicitar o contratar
 ----------------------------
+
 Excepto cuando la otra Parte de su consentimiento por escrito, cada una de las Partes, sus filiales
 y representantes acuerdan no solicitar u ofrecer empleo a ningún empleado de la otra Parte que esté
 involucrado en la prestación o el uso de los Servicios en virtud de este Acuerdo, durante la

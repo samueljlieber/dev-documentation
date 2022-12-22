@@ -1,11 +1,13 @@
 =============================================
 Create onsite interventions from sales orders
 =============================================
+
 Allowing your sales team to open onsite interventions creates a seamless experience for your
 customers. They can receive a quotation they first have to approve before the work even starts.
 
 Configure a product
 ===================
+
 Go to :menuselection:`Field Service --> Configuration --> Products` and create or edit a product.
 
 #. Under the *General Information* tab, select *Service* as *Product Type*.

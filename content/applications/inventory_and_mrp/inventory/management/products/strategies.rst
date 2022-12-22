@@ -10,7 +10,7 @@ Terminology
 ===========
 
 Minimum stock rule
--------------------
+------------------
 
 Minimum Stock rules are used to ensure that you always have the minimum
 amount of a product in stock in order to manufacture your products
@@ -55,7 +55,7 @@ the "Inventory submenu", do not forget to select a supplier.
     can not be stocked and will thus not be accounted for in the stock valuation.
 
 Make to Order
---------------
+-------------
 
 The Make to Order configuration is available on your product form
 through your :menuselection:`Inventory --> Inventory control --> Products` (or any

@@ -82,7 +82,7 @@ Open the products you want to ship and set a weight on it.
     measurement system.
 
 How to print shipping labels ?
-===============================
+==============================
 
 The delivery order created from the sale order will take the shipping
 information from it, but you can change the carrier if you want to.

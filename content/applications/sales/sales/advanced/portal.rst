@@ -3,7 +3,7 @@ How to give portal access rights to my customers?
 =================================================
 
 What is Portal access/Who is a portal user?
-============================================
+===========================================
 
 A portal access is given to a user who has the necessity to have access
 to Odoo instance, to view certain documents or information in the

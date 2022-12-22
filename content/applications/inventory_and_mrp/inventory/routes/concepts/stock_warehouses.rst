@@ -1,11 +1,11 @@
-=======================================
+======================================
 Taking stock from different warehouses
-=======================================
+======================================
 
 When you plan to deliver a customer, you don’t know in advance if the products will come from Warehouse A or Warehouse B. You may, in some cases, need to take stock from different warehouses. With *Odoo*, you can configure this by using the concept of virtual warehouses. Let us show you how to set those virtual warehouses.
 
 Set up virtual warehouses
-===========================
+=========================
 
 Let’s say you have two warehouses: Warehouse A and Warehouse B. Create a new warehouse, that will be a virtual one. It will allow you to take the stock from A or B. To do so, go to your inventory app settings and enable the multi-warehouses feature. Then, go to the warehouses menu and click on create.
 
@@ -21,7 +21,7 @@ Now, you have to make sure that the main stock locations of warehouse A and ware
    :align: center
 
 Sell a product from the virtual warehouse
-==========================================
+=========================================
 
 Let’s say you have two products, one stored in warehouse A and one stored in warehouse B. Now, you can create a new quotation for one of each product. Go to other information and choose Warehouse A+B in the shipping information.
 

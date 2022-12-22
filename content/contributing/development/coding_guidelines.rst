@@ -31,6 +31,7 @@ Module structure
 
 Directories
 -----------
+
 A module is organized in important directories. Those contain the business logic;
 having a look at them should make you understand the purpose of the module.
 
@@ -243,6 +244,7 @@ XML files
 
 Format
 ------
+
 To declare a record in XML, the **record** notation (using *<record>*) is recommended:
 
 - Place ``id`` attribute before ``model``
@@ -409,6 +411,7 @@ source code tries to respect Python standard, but some of them can be ignored.
 
 Imports
 -------
+
 The imports are ordered as
 
 #. External libraries (one per line sorted and split in python stdlib)
@@ -952,7 +955,7 @@ Javascript and CSS
 ==================
 
 Static files organization
---------------------------
+-------------------------
 
 Odoo addons have some conventions on how to structure various files. We explain
 here in more details how web assets are supposed to be organized.

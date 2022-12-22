@@ -14,7 +14,7 @@ An Access Key is a 16 character alphanumeric code that allows access to
 the UPS Developer Kit API Development and Production servers.
 
 Create a UPS Account
-=====================
+====================
 
 Note that only customers located in the US can open a UPS account online.
 If you are located outside the US, you will need to contact UPS Customer

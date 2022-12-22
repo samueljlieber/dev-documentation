@@ -1,7 +1,7 @@
 
-==================================
+========
 Settings
-==================================
+========
 
 Overview
 ========
@@ -97,7 +97,6 @@ In addition, visitors have access to the logs, shell and mails of your developme
 Production and staging builds are excluded, visitors can only see their status.
 
 .. _odoosh-gettingstarted-settings-modules-installation:
-
 
 Custom domains
 ==============

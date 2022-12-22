@@ -87,6 +87,7 @@ Go to :menuselection:`Accounting --> Settings --> Argentinian Localization` to s
 
 AFIP Certificates
 *****************
+
 The electronic invoice and other afip services work with WebServices (WS) provided by the AFIP.
 
 In order to enable communication with the AFIP, the first step is to request a Digital Certificate
@@ -245,6 +246,7 @@ defines as well:
 
 Web Services
 ************
+
 - ``wsfev1: Electronic Invoice.`` This is the most common service,
   is used to generated invoices for document types A, B, C, M  with no detail per item.
 - ``wsbfev1: Electronic Fiscal Bond.``  For those who invoice capital goods and wish
@@ -274,6 +276,7 @@ with the same letter will share the same sequence.  For example:
 
 Sequences
 ~~~~~~~~~
+
 In case that you want to synchronize the next number in the sequence in Odoo based on the next
 number in the AFIP POS, the next button that is visible under :ref:`developer mode <developer-mode>`
 can be used:
@@ -323,9 +326,9 @@ given by the document type.
 The most common document type will be defined automatically for the different combinations of AFIP
 responsibility type but it can be updated manually by the user.
 
-
 Electronic Invoice elements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 When using electronic invoice, if all the information is correct the Invoice is posted in the
 standard way, in case that something needs to be addressed (check the section common errors for more
 detail), an error message is raised indicating the issue/proposed solution and the invoice remains
@@ -392,6 +395,7 @@ filled automatically considering the beginning and day of the invoice month:
 
 Exportation Invoices
 ********************
+
 The invoices related to Exportation transactions required a Journal that used the AFIP POS
 System “Expo Voucher - Web Service” so the proper document type be associated:
 
@@ -416,9 +420,9 @@ Proveedor del Exterior” or “IVA Liberado – Ley Nº 19.640”, Odoo automat
 .. image:: argentina/argentina_edi_13.png
    :align: center
 
-
 Fiscal Bond
 ***********
+
 The Electronic Fiscal bond is used for those who invoice capital goods and wish to access
 the benefit of the Electronic Tax Bonds granted by the Ministry of Economy.
 
@@ -484,6 +488,7 @@ In the workflow we can have two scenarios:
 
 Invoice printed report
 ~~~~~~~~~~~~~~~~~~~~~~
+
 The PDF report related to electronic invoices that have been validated by the AFIP includes
 a barcode at the bottom of the format which represent the CAE number, the Expiration Date is
 also displayed as it’s legal requirement:
@@ -494,6 +499,7 @@ also displayed as it’s legal requirement:
 
 Troubleshooting and Auditing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 For auditing and troubleshooting purposes you can get the detailed information of an
 invoice number that has been  previously sent to the AFIP,
 
@@ -509,7 +515,6 @@ as support for any possible  issues on the sequence synchronization between Odoo
 
 .. image:: argentina/argentina_edi_22.png
    :align: center
-
 
 Vendor Bills
 ------------
@@ -531,9 +536,9 @@ expected.
 The vendor bill number is structured in the same way that the invoices with the difference
 that the document sequence is input by the user: “Document Prefix - Letter -  Document number".
 
-
 Validate Vendor Bill number in AFIP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 As most companies have internal controls to verify that the vendor bill is related to an AFIP
 valid document,  an automatic validation can be set in :menuselection:`Accounting --> Settings -->
 Argentinian Localization --> Validate document in the AFIP`, considering the following levels:
@@ -549,6 +554,7 @@ Argentinian Localization --> Validate document in the AFIP`, considering the fol
 
 How to use it in Odoo
 *********************
+
 This tool incorporates in the vendor bill a new "Verify on AFIP" button located
 next to the AFIP Authorization code.
 
@@ -561,11 +567,12 @@ displayed and the details of the validation will be added to the chatter.
 .. image:: argentina/argentina_edi_18.png
    :align: center
 
-
 Special Use cases
 ~~~~~~~~~~~~~~~~~
+
 Untaxed Concepts
 ****************
+
 There are some transactions that include items that are not part of the VAT base amount,
 this is commonly used in fuel and gasoline invoices.
 
@@ -577,6 +584,7 @@ base amount and an additional item to register the amount of  the Exempt concept
 
 Perception Taxes
 ****************
+
 The vendor bill will be registered using 1 item for each product that is part of the
 VAT base amount, the perception tax can be added in any of the product lines, as result
 we will have one tax group for the VAT and one for the perception, the perception default
@@ -592,7 +600,6 @@ and set the correct amount.
    :align: center
 
 After this is done the invoice can be validated.
-
 
 Reports
 =======

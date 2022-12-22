@@ -42,6 +42,7 @@ Installation
 
 How To Test GeoIP Geolocation In Your Odoo Website
 ==================================================
+
 1. Go to your website. Open the web page that you want to test ``GeoIP``.
 2. Choose :menuselection:`Customize --> HTML/CSS/JS Editor`.
 3. Add the following piece of XML in the page :

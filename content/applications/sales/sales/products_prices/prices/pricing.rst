@@ -117,6 +117,7 @@ e.g. sale price = 2*cost (100% markup) with $5 of minimal margin.
 
 Prices per country
 ==================
+
 Pricelists can be set by countries group.
 Any new customer recorded in Odoo gets a default pricelist, i.e. the first one in the list matching the country. In case no country is set for the customer, Odoo takes the first pricelist without any country group.
 

@@ -6,11 +6,12 @@ SMS Pricing and FAQ
 
 What do I need to send SMSs?
 ============================
-SMS Text Messaging is an In-App Purchase (IAP) service that *requires prepaid credits* to work.
 
+SMS Text Messaging is an In-App Purchase (IAP) service that *requires prepaid credits* to work.
 
 How many types of SMSs are there?
 =================================
+
 There are 2 types: GSM7 and UNICODE.
 
 **GSM7** is the standard format, with a limit of 160 characters per message, that includes the
@@ -31,9 +32,9 @@ Limit per SMS: 70 characters.
    GSM7 and to 67 for Unicode. The system will inform you in real-time about the number of SMS your
    message represents.
 
-
 How much does it cost to send an SMS?
 =====================================
+
 | The price of an SMS depends on the destination and the length (number of characters) of the message.
 | To see the **price per country,
   please consult**: `Odoo SMS - FAQ <https://iap-services.odoo.com/iap/sms/pricing#sms_faq_01>`_.
@@ -46,9 +47,9 @@ The number of SMSs a message represents will be always available to you in your 
    :height: 300
    :alt: SMS pricing and FAQ Odoo SMS Marketing
 
-
 How do I buy credits?
 =====================
+
 Go to :menuselection:`Settings --> Buy Credits`.
 
 

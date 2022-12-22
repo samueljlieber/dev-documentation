@@ -56,7 +56,6 @@ Additional filtering options include:
    information about the General Data Protection Regulation on `Odoo GDPR <http://odoo.com/gdpr>`_.
 
 Pricing
-=======
 
 Lead mining is an *In-App Purchase* feature and each generated lead costs one credit.
 

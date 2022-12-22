@@ -1,6 +1,6 @@
-=====================================
+====================================
 Organize a cross-dock in a warehouse
-=====================================
+====================================
 
 Cross-docking is the process of sending products that are received directly to the customers, without making them enter the stock. The trucks are simply unloaded in a *Cross-Dock* area in order to reorganize products and load another truck.
 
@@ -11,7 +11,7 @@ Cross-docking is the process of sending products that are received directly to t
    For more information on how to organize your warehouse, read our blog: `What is cross-docking and is it for me? <https://www.odoo.com/blog/business-hacks-1/post/what-is-cross-docking-and-is-it-for-me-270>`__
 
 Configuration
-==============
+=============
 
 In the *Inventory* app, open :menuselection:`Configuration --> Settings` and activate the *Multi-Step Routes*.
 
@@ -35,7 +35,7 @@ This modification will lead to the creation of a *Cross-Docking* route that can 
    :align: center
 
 Configure products with Cross-Dock Route
-=========================================
+========================================
 
 Create the product that uses the *Cross-Dock Route* and then, in the inventory tab, select the routes *Buy* and *Cross-Dock*. Now, in the purchase tab, specify the vendor to who you buy the product and set a price for it.
 

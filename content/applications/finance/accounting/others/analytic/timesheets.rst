@@ -59,7 +59,7 @@ Repeat the operation to create the Cedric Digory employee. Don't forget
 to specify its related user and **Timesheet Costs**.
 
 Issue a Sales Order
---------------------
+-------------------
 
 We created two employees called Harry Potter and Cedric Diggory in the
 **Employee** app. Both of them will work on a consultancy contract for our

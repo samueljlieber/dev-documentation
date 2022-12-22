@@ -1,7 +1,7 @@
 
-==================================
+========
 Branches
-==================================
+========
 
 Overview
 ========
@@ -14,7 +14,7 @@ The branches view gives you an overview of the different branches your repositor
 .. _odoosh-gettingstarted-branches-stages:
 
 Stages
-===============
+======
 
 Odoo.sh offers three different stages for your branches: production, staging and development.
 
@@ -27,6 +27,7 @@ You can change the stage of a branch by drag and dropping it into the stage sect
 
 Production
 ----------
+
 This is the branch holding the code on which your production database runs.
 There can be only one production branch.
 
@@ -59,6 +60,7 @@ will automatically be set back to the development stage after 30 days.
 
 Staging
 -------
+
 Staging branches are meant to test your new features using the production data without compromising
 the actual production database with test records. They will create databases that are neutralized
 duplicates of the production database.
@@ -83,9 +85,9 @@ The unit tests are not performed as, in Odoo, they currently rely on the demo da
 production database. In the future, if Odoo supports to run the unit tests without the demo data,
 Odoo.sh will then consider running the tests on staging databases.
 
-
 Development
 -----------
+
 Development branches create new databases using the demo data to run the unit tests.
 The installed modules are the ones included in your branches. You can change this list of modules
 to install in your :ref:`project Settings <odoosh-gettingstarted-settings-modules-installation>`.
@@ -107,6 +109,7 @@ After that, they can be automatically garbage collected to make room for new dat
 
 Merging your branches
 ---------------------
+
 You can merge your branches easily by drag and dropping them into each other.
 
 .. image:: branches/interface-branches-merge.png
@@ -147,10 +150,11 @@ If you test configuration changes in staging branches, and want them to be appli
 .. _odoosh-gettingstarted-branches-tabs:
 
 Tabs
-=============
+====
 
 History
 -------
+
 An overview of your branch history:
 
 * The messages of the commits and their authors,
@@ -168,6 +172,7 @@ When an operation is successful, you can access the database thanks to the *conn
 
 Mails
 -----
+
 This tab contains the mail catcher. It displays an overview of the emails sent by your database.
 The mail catcher is available for your development and
 staging branches as the emails of your production database are really sent instead of being intercepted.
@@ -178,6 +183,7 @@ staging branches as the emails of your production database are really sent inste
 
 Shell
 -----
+
 A shell access to your container. You can perform basic linux commands (:code:`ls`, :code:`top`)
 and open a shell on your database by typing :code:`psql`.
 
@@ -187,13 +193,13 @@ and open a shell on your database by typing :code:`psql`.
 You can open multiple tabs and drag-and-drop them to arrange the layout as you wish,
 for instance side by side.
 
-
 .. Note::
   Long running shell instances are not guaranteed. Idle shells can be
   disconnected at anytime in order to free up resources.
 
 Editor
 ------
+
 An online integrated development environment (IDE) to edit the source code.
 You can also open terminals, Python consoles and even Odoo Shell consoles.
 
@@ -205,6 +211,7 @@ for instance side by side.
 
 Monitoring
 ----------
+
 This link contains various monitoring metrics of the current build.
 
 .. image:: branches/interface-branches-monitoring.png
@@ -217,6 +224,7 @@ On the graphs, annotations help you relate to changes on the build (database imp
 
 Logs
 ----
+
 A viewer to have a look to your server logs.
 
 .. image:: branches/interface-branches-logs.png
@@ -240,6 +248,7 @@ The fetching is automatically stopped after 5 minutes. You can restart it using 
 
 Backups
 -------
+
 A list of the backups available for download and restore, the ability to perform a manual backup and to import a
 database.
 
@@ -403,9 +412,9 @@ The configuration steps are explained in the documentation about :ref:`SPF
   Forgetting to configure your SPF or DKIM to authorize Odoo as a sending host can lead to the
   delivery of your emails as spam in your contacts inbox.
 
-
 Shell commands
 ==============
+
 In the top right-hand corner of the view, different shell commands are available.
 
 .. image:: branches/interface-branches-shellcommands.png
@@ -418,6 +427,7 @@ such as ``<URL>``, ``<PATH>``, ...
 
 Clone
 -----
+
 Download the Git repository.
 
 .. code-block:: bash
@@ -433,6 +443,7 @@ The *run* button is not available for this command, as it is meant to be used on
 
 Fork
 ----
+
 Create a new branch based on the current branch.
 
 .. code-block:: bash
@@ -449,6 +460,7 @@ Uploads the new branch *feature-1* on your remote repository.
 
 Merge
 -----
+
 Merge the current branch in another branch.
 
 .. code-block:: bash
@@ -465,8 +477,10 @@ Uploads the changes you just added in the *master* branch on your remote reposit
 
 SSH
 ---
+
 Setup
 ~~~~~
+
 In order to use SSH, you have to set up your profile SSH public key (if it is not already done).
 To do so, follow these steps:
 

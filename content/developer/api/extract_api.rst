@@ -1,8 +1,8 @@
 :code-column:
 
-===============
+===========
 Extract API
-===============
+===========
 
 Odoo provides a service allowing you to automate the processing of your invoices. The service scans your document using an Optical
 Character Recognition (OCR) engine and then uses AI-based algorithms to extract the fields of interest such as the total, the due date, or
@@ -15,6 +15,7 @@ allows you to integrate our service directly into your own projects.
 
 Invoices
 ========
+
 The extract API use the JSON-RPC2_ protocol. The diffent routes are located at the following address: **https://iap-extract.odoo.com**.
 
 Expected successful flow
@@ -40,6 +41,7 @@ Routes
 
 Description
 ^^^^^^^^^^^
+
 Request a processing of the document from the OCR. The route will return a `document_id` you can use to obtain the result of your request.
 
 Request Body
@@ -143,6 +145,7 @@ Response
 
 Description
 ^^^^^^^^^^^
+
 Request the results of the documents ids obtained with the :ref:`/parse <webservices/extract_api/invoice_parse>` route. Can either return the results or a "request pending" message.
 
 Request Body
@@ -357,6 +360,7 @@ a :ref:`webservices/extract_api/invoice_get_results/feature_result` structure.
 
 Description
 ^^^^^^^^^^^
+
 Route that validates the different features of an invoice. The validation step is an optional step but is strongly recommended. By telling the system if it were right or wrong for each
 feature you give an important feedback. It has no direct impact but it helps the system to greatly improve its prediction accuracy for the invoices you will send in the future.
 
