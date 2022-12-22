@@ -1,54 +1,46 @@
 ======================================
-Allow Customers to Close their Tickets
+Allow customers to close their tickets
 ======================================
 
 Allowing customers to close their tickets gives them autonomy and minimize misunderstandings about
-when an issue is considered solved, or not. It makes communication and actions more efficient.
+when an issue is considered solved or not.
 
 Configure the feature
 =====================
 
-To configure the feature go to :menuselection:`Helpdesk --> Settings --> Helpdesk Teams --> Edit`
-and enable *Ticket closing*.
+To configure the feature, go to :menuselection:`Helpdesk --> Configuration --> Helpdesk Teams`,
+click on the team, and click :guilabel:`Edit` and enable :guilabel:`Ticket closing`.
 
-.. image:: close_tickets/closetickets1.png
-   :align: center
-   :alt: Ticket closing in Odoo Helpdesk
+.. image:: close_tickets/close-ticket-settings.png
+   :alt: Ticket closing feature in Odoo Helpdesk.
 
-In order to designate to which stage the ticket migrates to once it is closed, go to
-:menuselection:`Helpdesk --> Overview --> Tickets`.
+To designate which stage the ticket migrates to once it is closed, navigate to the ticket pipeline
+by going to :menuselection:`Helpdesk --> Overview` and clicking :guilabel:`Tickets` on the team's
+card.
 
-.. image:: close_tickets/closetickets2.png
-   :align: center
-   :alt: Ticket closing in Odoo Helpdesk
+There are two options: create a new Kanban stage or work with an existing one. For both scenarios,
+click the gear icon next to the stage name, select :guilabel:`Edit Stage`, and enable
+:guilabel:`Closing Stage`.
 
-You can either create a new Kanban stage or work with an existing one. For both scenarios, go to
-:menuselection:`Helpdesk --> Settings --> Edit Stage` and enable *Closing Stage*.
+If a closing stage is not specified, by default, the ticket is moved to the last stage. If more
+than one stage is set as a closing stage, the ticket is put in the first one.
 
-.. image:: close_tickets/closetickets3.png
-   :align: center
-   :alt: Ticket closing in Odoo Helpdesk
-
-If a closing stage is not specified, by default, the ticket is moved to the last stage;
-contrarily, if you have more than one stage set as closing, the ticket is put in the first one.
-
-The Costumer Portal
+The customer portal
 ===================
 
-Now, once the user logs into his Portal, the option *Close this ticket* is available.
+Now, once the customer logs into their portal, the option :guilabel:`Close this ticket` is
+available.
 
-.. image:: close_tickets/closetickets4.png
-   :align: center
-   :alt: Ticket closing in Odoo Helpdesk
+.. image:: close_tickets/customer-view-close-ticket.png
+   :alt: Customer view of ticket closing in Odoo Helpdesk.
 
-Get reports on tickets closed by costumers
+Get reports on tickets closed by customers
 ==========================================
 
-To do an analysis of the tickets that have been closed by costumers go to
-:menuselection:`Helpdesk --> Reporting --> Tickets --> Filters --> Add Custom filter -->
-Closed by partner --> Applied`.
+To analyze the tickets that have been closed by customers, go to :menuselection:`Helpdesk -->
+Reporting --> Tickets`. Then, click on the :guilabel:`Filters` menu and add a :guilabel:`Add Custom
+filter`. Next, set the custom filter parameters to :guilabel:`Closed by partner` and :guilabel:`is
+true`. Finally, click :guilabel:`Apply`.
 
-.. image:: close_tickets/closetickets5.png
-   :align: center
-   :height: 300
-   :alt: Reports on Ticket closing in Odoo Helpdesk
+.. image:: close_tickets/closed-by-search-filter.png
+   :alt: Filter for tickets closed by customers on Odoo Helpdesk's reporting page.
