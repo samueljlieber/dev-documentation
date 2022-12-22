@@ -1,7 +1,7 @@
 # applications/finance
 
 applications/finance/accounting/overview/main_concepts/in_odoo.rst applications/finance/accounting.rst                                                                      # finance/accounting/overview/main_concepts/in_odoo -> finance/accounting.rst
-applications/finance/accounting/overview/main_concepts/memento.rst applications/finance/accounting/getting_started/memento.rst                                              # overview/main_concepts/* -> getting_started/*
+applications/finance/accounting/overview/main_concepts/memento.rst applications/finance/accounting/getting_started/cheat_sheet.rst                                           # overview/main_concepts/* -> getting_started/*
 applications/finance/accounting/overview/getting_started/chart_of_accounts.rst applications/finance/accounting/getting_started/initial_configuration/chart_of_accounts.rst  # overview/getting_started/* -> getting_started/initial_configuration/*
 applications/finance/accounting/overview/getting_started/setup.rst applications/finance/accounting/getting_started/initial_configuration/setup.rst                          # overview/getting_started/* -> getting_started/initial_configuration/*
 applications/finance/accounting/overview/process_overview/customer_invoice.rst applications/finance/accounting/getting_started/process_overview/customer_invoice.rst        # overview/* -> getting_started/*
