@@ -1,3 +1,5 @@
+.. _multi-currency-system:
+
 =====================
 Multi-currency system
 =====================
