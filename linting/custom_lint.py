@@ -1,29 +1,30 @@
 import re
-from sphinxlint import *
-from pprint import pformat
+import sys
+
+import sphinxlint
 
 # https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#sections
 HEADINGS_CHARACTERS = [
-    '#', '*', '=', '-', '^', '"', '\'', '+', '`', '\"', '@', '!', ',', '.', '/'
+    '#', '*', '=', '-', '^', '"', '\'', '+', '`', '@', '!', ',', '.', '/'
     # Complete list https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#sections
 ]
-HEADINGS_REGEX = "(%s)\n" % (
-    "|".join(
-        f"(\\{character}+)" for character in HEADINGS_CHARACTERS
+HEADINGS_REGEX = r'(%s)\n' % (
+    '|'.join(
+        rf'(\{character}+)' for character in HEADINGS_CHARACTERS
     )
 )
 HEADINGS_ORDERING_GUIDELINES = [
     '=', '-', '~', '*', '^',
 ]
 
-@checker(".rst")
+@sphinxlint.checker('.rst')
 def check_headers(file, lines, options=None):
     """Enforce our headings guidelines
 
     https://www.odoo.com/documentation/master/contributing/documentation/rst_cheat_sheet.html#headings
     """
     toskip = set()
-    file_headers_characters = []  # TODO check ordering of headers
+    file_headers_characters = []
     found_main_header = False
     for lno, line in enumerate(lines, start=1):
         if toskip and toskip.pop():
@@ -76,4 +77,4 @@ def check_headers(file, lines, options=None):
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(sphinxlint.main())
