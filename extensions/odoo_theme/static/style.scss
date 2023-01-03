@@ -212,14 +212,13 @@ header {
         background-color: lighten($secondary, 70%) ;
         color: $secondary;
         font-weight: $font-weight-normal;
-        @include font-size($font-size-sm);
 
         @include media-breakpoint-up(lg) {
             width: $o-side-nav-width;
             height: calc(100vh - #{$o-headers-height});
             left: 0;
             padding-top: $o-padding-m;
-            padding-left: $o-padding-m;
+            padding-left: $o-padding-s;
         }
 
         &::-webkit-scrollbar {
@@ -247,98 +246,107 @@ header {
         }
     }
 
+}
+
+.o_main_toc {
+    ul {
+        .o_toc_entry_wrapper {
+            display: inline-flex;
+            align-items: baseline;
+        }
+
+        li.o_active_toc_entry:not(.o_deepest_active_toc_entry) > .o_toc_entry_wrapper {
+            color: $secondary;
+            font-weight: $font-weight-bolder;
+        }
+    }
+
+    .o_deepest_active_toc_entry {
+        > a, > a.o_toc_entry_wrapper {
+            background-color: $purple;
+            color: $white;
+            font-weight: $font-weight-bolder;
+        }
+    }
+
     .toctree-l1 {
         padding-bottom: $o-padding-xs;
 
-        > .o_toc_entry_wrapper a {
+        > .o_toc_entry_wrapper {
             color: $secondary;
-            font-weight: 600;
-        }
-    }
-
-    .o_main_toc > ul li {
-        &.o_active_toc_entry {
-            &:not(.toctree-l1) > .o_toc_entry_wrapper i[class^="i-"]:not(.collapsed), > a , > .o_toc_entry_wrapper a, > .o_toc_entry_wrapper i {
-                color: $secondary;
-            }
+            font-weight: $o-font-weight-medium;
+            padding-top: 0;
+            padding-bottom: 0;
         }
 
-        a {
-            &.current {
-                color: $secondary;
-            }
-        }
-    }
-
-    ul {
-        .o_deepest_active_toc_entry {
-            margin-left: -3px;
-            border-left: 3px solid $o-toc-border;
-            background-color: $o-toc-bg;
+        &[class*="o_menu_"] > .o_toc_entry_wrapper > i:before {
+            @include o-inline-icon(0 $o-padding-xs 0 0);
         }
 
-        > .toctree-l1 {
-            &[class*="o_menu_"] > .o_toc_entry_wrapper > i:before {
-                content: $i-doc-apps;
-                @include o-inline-icon(0 5px 0 0);
-                color: $secondary;
-            }
+        &.o_menu_applications > .o_toc_entry_wrapper > i:before {
+            content:'#{$i-doc-apps}';
+        }
 
-            &.o_menu_applications > .o_toc_entry_wrapper > i:before{
-                content:'#{$i-doc-apps}';
-            }
+        &.o_menu_administration > .o_toc_entry_wrapper > i:before {
+            content:'#{$i-doc-admin}';
+        }
 
-            &.o_menu_administration > .o_toc_entry_wrapper > i:before{
-                content:'#{$i-doc-admin}';
-            }
+        &.o_menu_developer > .o_toc_entry_wrapper > i:before {
+            content:'#{$i-doc-dev}';
+        }
 
-            &.o_menu_developer > .o_toc_entry_wrapper > i:before{
-                content:'#{$i-doc-dev}';
-            }
+        &.o_menu_services > .o_toc_entry_wrapper > i:before {
+            content:'#{$i-doc-services}';
+        }
 
-            &.o_menu_services > .o_toc_entry_wrapper > i:before{
-                content:'#{$i-doc-services}';
-            }
-
-            &.o_menu_contributing > .o_toc_entry_wrapper > i:before{
-                content:'#{$i-doc-contribute}';
-            }
-
+        &.o_menu_contributing > .o_toc_entry_wrapper > i:before {
+            content:'#{$i-doc-contribute}';
         }
     }
 }
 
 .o_main_toc, .o_page_toc_nav {
+    a {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        padding: .3rem;
+        border-radius: $border-radius 0 0 $border-radius;
+        color: $o-gray-color;
+        font-weight: $font-weight-normal;
+        text-decoration: none;
+        @include font-size($font-size-sm);
+
+        &:not(.current):hover {
+            background-color: $o-gray-bg ;
+        }
+
+        &:not(.o_toc_entry_wrapper) {
+            padding-left: 1.25rem;
+        }
+    }
+
     ul {
         padding-left: $o-padding-s;
         list-style: none;
 
         li {
-            > a.reference {
-                padding-left: .875rem;
-            }
-
-            a {
-                display: inline-block;
-                padding: .4rem 0;
-                color: $o-gray-color;
-                font-weight: $font-weight-normal;
+            &:not(.o_page_toc_title) .o_toc_entry_wrapper {
+                display: inline-flex;
+                align-items: baseline;
             }
 
             &:not(.toctree-l1) .o_toc_entry_wrapper {
-                &:not(.o_page_toc_title) {
-                    display: flex;
-                    align-items: baseline;
-                }
-
                 > i[class^="i-"] {
                     display: inline-block;
-                    margin-right: .125rem;
                     transition: rotate, .3s;
-                    font-size: .75rem;
 
                     &[aria-expanded="true"] {
                         transform: rotate(90deg);
+                    }
+
+                    + span {
+                        margin-left: $o-icon-margin;
                     }
                 }
             }
@@ -348,14 +356,14 @@ header {
                     transform: rotate(90deg);
                 }
 
-                > a , > .o_toc_entry_wrapper a, > .o_toc_entry_wrapper i {
-                    font-weight: $font-weight-bolder;
-                }
+                // > a, > .o_toc_entry_wrapper {
+                //     font-weight: $font-weight-bolder;
+                // }
             }
         }
     }
 
-    > ul { //is first ul in toc
+    > ul {
         padding-left: 0;
     }
 }
@@ -366,7 +374,6 @@ header {
 
 aside.o_page_toc {
     color: $body-color;
-    @include font-size($font-size-sm);
 
     &:not(.o_in_nav_toc) {
         position: -webkit-sticky;
@@ -379,7 +386,7 @@ aside.o_page_toc {
             display: block;
             grid-area: toc;
             top: $o-headers-height;
-            padding: $o-padding-m $o-padding-s $o-padding-m 0;
+            padding: $o-padding-m 0;
             overflow-y: auto;
         }
     }
@@ -394,18 +401,22 @@ aside.o_page_toc {
 
     h5 {
         margin-bottom: $o-padding-xs;
-        padding-left: $o-padding-xs;
         font-weight: $font-weight-bolder;
         color: $o-gray-color;
         text-transform: uppercase;
     }
 
-    a {
-        font-weight: $font-weight-normal;
-        color: $o-gray-color
+    li.o_active_toc_entry:not(.o_page_toc_title) > a {
+        font-weight: $font-weight-bolder;
     }
 
-    .o_page_toc_title {
+    a {
+        font-weight: $font-weight-normal;
+        color: $o-gray-color;
+        @include font-size($font-size-sm);
+    }
+
+    .o_page_toc_title > .o_toc_entry_wrapper {
         display:none;
 
         + ul {
