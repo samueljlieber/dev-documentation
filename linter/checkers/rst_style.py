@@ -16,6 +16,8 @@ FORBIDDEN_HEADING_DELIMITER_RE = re.compile(
     '^(' + '|'.join(rf'\{char}+' for char in FORBIDDEN_HEADING_CHARS) + ')\n$'
 )
 GIT_CONFLICT_MARKERS = ['<' * 7, '>' * 7]
+REFLINK_RE = re.compile(r':ref:`(?P<text>[\w\s]+)<(?P<link>[^`<>]+)>`')
+TRAILING_SPACES_RE = re.compile(r'\s*$')
 
 
 @sphinxlint.checker('.rst')
@@ -109,3 +111,26 @@ def check_git_conflict_markers(file, lines, options=None):
     for lno, line in enumerate(lines):
         if any(marker in line for marker in GIT_CONFLICT_MARKERS):
             yield lno + 1, "the git conflict should be resolved"
+
+
+@sphinxlint.checker('.rst')
+def check_ref_link_format(file, lines, options=None):
+    """ Check that ref links have the correct whitespacing."""
+    lines = "".join(lines)
+
+    # Returns a list of tuples of captures groups
+    matches = REFLINK_RE.findall(lines)
+
+    for match in matches:
+        # First match group
+        text_group = match[0]
+        trailing_whitespace = TRAILING_SPACES_RE.search(text_group)
+        if trailing_whitespace is None:
+            yield 0, "could not match reflink spaces, this should not happen"
+
+        whitespace_count = len(trailing_whitespace[0])
+
+        # TODO: Use option or variable for the expected space count
+        if whitespace_count != 1:
+            # TODO: Yield the actual line number
+            yield 0, "incorrect spaces between reflink text and link, expected {}, but found {} spaces".format(1, whitespace_count)

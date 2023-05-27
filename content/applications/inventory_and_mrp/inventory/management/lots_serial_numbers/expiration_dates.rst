@@ -15,6 +15,9 @@ Configuration
 Application configuration
 -------------------------
 
+Refer to the :ref:`GS1 nomenclature list <barcode/operations/gs1_nomenclature/list>` to
+see a comprehensive list of all barcode patterns and rules to follow.
+
 To use expiration date tracking, open the *Inventory* application and go to
 :menuselection:`Configuration --> Settings` and activate the *Lots & Serial Numbers* and *Expiration
 Dates* features.

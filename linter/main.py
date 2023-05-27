@@ -22,6 +22,29 @@ def run_additional_checks(argv=None):
         checkers.resource_files.check_image_size(path)
 
 
+def main(args):
+    # Patch sphinxlint's global constants to include our custom directives and parse their content.
+    with patch(
+        'sphinxlint.DIRECTIVES_CONTAINING_RST',
+        sphinxlint.DIRECTIVES_CONTAINING_RST + CUSTOM_RST_DIRECTIVES,
+    ), patch(
+        'sphinxlint.DIRECTIVES_CONTAINING_RST_RE',
+        '(' + '|'.join(sphinxlint.DIRECTIVES_CONTAINING_RST) + ')',
+    ), patch(
+        'sphinxlint.ALL_DIRECTIVES',
+        '(' + '|'.join(sphinxlint.DIRECTIVES_CONTAINING_RST
+            + sphinxlint.DIRECTIVES_CONTAINING_ARBITRARY_CONTENT)
+            + ')',
+    ), patch(
+        'sphinxlint.seems_directive_re',
+        re.compile(rf"^\s*(?<!\.)\.\. {sphinxlint.ALL_DIRECTIVES}([^a-z:]|:(?!:))"),
+    ), patch(
+        'sphinxlint.three_dot_directive_re',
+        re.compile(rf'\.\.\. {sphinxlint.ALL_DIRECTIVES}::'),
+    ):
+        run_additional_checks()
+        return sphinxlint.main(args)
+
 """
 The following checkers are selected.
 
@@ -57,24 +80,5 @@ Custom checkers:
 - all the checkers defined in checkers/* files
 """
 if __name__ == '__main__':
-    # Patch sphinxlint's global constants to include our custom directives and parse their content.
-    with patch(
-        'sphinxlint.DIRECTIVES_CONTAINING_RST',
-        sphinxlint.DIRECTIVES_CONTAINING_RST + CUSTOM_RST_DIRECTIVES,
-    ), patch(
-        'sphinxlint.DIRECTIVES_CONTAINING_RST_RE',
-        '(' + '|'.join(sphinxlint.DIRECTIVES_CONTAINING_RST) + ')',
-    ), patch(
-        'sphinxlint.ALL_DIRECTIVES',
-        '(' + '|'.join(sphinxlint.DIRECTIVES_CONTAINING_RST
-            + sphinxlint.DIRECTIVES_CONTAINING_ARBITRARY_CONTENT)
-            + ')',
-    ), patch(
-        'sphinxlint.seems_directive_re',
-        re.compile(rf"^\s*(?<!\.)\.\. {sphinxlint.ALL_DIRECTIVES}([^a-z:]|:(?!:))"),
-    ), patch(
-        'sphinxlint.three_dot_directive_re',
-        re.compile(rf'\.\.\. {sphinxlint.ALL_DIRECTIVES}::'),
-    ):
-        run_additional_checks()
-        sys.exit(sphinxlint.main())
+    sys.exit(main(sys.argv))
+

@@ -77,6 +77,13 @@ $(HTML_BUILD_DIR)/_static/style.css: extensions/odoo_theme/static/style.scss ext
 
 #=== Development and debugging rules ===#
 
+# Try python3 if python doesn't exist
+PYTHON := $(shell which python 2>/dev/null)
+
+ifeq ($(strip $(PYTHON)),)
+PYTHON := python3
+endif
+
 fast: SPHINXOPTS += -A collapse_menu=True
 fast: html
 
@@ -84,5 +91,8 @@ static: $(HTML_BUILD_DIR)/_static/style.css
 	cp -r extensions/odoo_theme/static/* $(HTML_BUILD_DIR)/_static/
 	cp -r static/* $(HTML_BUILD_DIR)/_static/
 
-test:
-	@python tests/main.py $(SOURCE_DIR)/administration $(SOURCE_DIR)/applications $(SOURCE_DIR)/contributing $(SOURCE_DIR)/developer $(SOURCE_DIR)/services redirects
+install_test_deps: linter/requirements.txt
+	pip install -r linter/requirements.txt
+
+test: install_test_deps
+	$(PYTHON) linter/main.py $(SOURCE_DIR)/administration $(SOURCE_DIR)/applications $(SOURCE_DIR)/contributing $(SOURCE_DIR)/developer $(SOURCE_DIR)/services redirects
