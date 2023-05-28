@@ -118,19 +118,61 @@ def check_ref_link_format(file, lines, options=None):
     """ Check that ref links have the correct whitespacing."""
     lines = "".join(lines)
 
-    # Returns a list of tuples of captures groups
-    matches = REFLINK_RE.findall(lines)
+    # Returns a list of Match objects
+    # Example match:
+    # ":ref:`GS1 nomenclature list <barcode/operations/gs1_nomenclature/list>`"
+    matches = REFLINK_RE.finditer(lines)
 
     for match in matches:
         # First match group
-        text_group = match[0]
+        # Example: "GS1 nomenclature list "
+        #            trailing_whitespace ^
+        text_group = match.group('text')
+
+        # Search for the trailing spaces in the label
         trailing_whitespace = TRAILING_SPACES_RE.search(text_group)
         if trailing_whitespace is None:
             yield 0, "could not match reflink spaces, this should not happen"
 
-        whitespace_count = len(trailing_whitespace[0])
+        trailing_whitespace_count = len(trailing_whitespace[0])
 
-        # TODO: Use option or variable for the expected space count
-        if whitespace_count != 1:
-            # TODO: Yield the actual line number
-            yield 0, "incorrect spaces between reflink text and link, expected {}, but found {} spaces".format(1, whitespace_count)
+        # If too many or too little spaces between label and link
+        if trailing_whitespace_count != 1:
+            # Look at the entire match
+            # ":ref:`GS1 nomenclature list\n   <barcode/operations/gs1_nomenclature/list>`"
+            reflink_str = match.group(0)
+
+            # The index of where the match starts, in the entire file
+            start_idx = match.start()
+
+            # Determine if it spans more than 1 line
+            if "\n" in reflink_str:
+                line_start_idx = lines[:start_idx].rfind("\n")
+
+                # + 1 because we don't want to include the "\n" at beginning
+                # Conveniently handles -1 edge case to 0
+                content_before_match = lines[line_start_idx + 1:start_idx]
+
+                stripped_content = content_before_match.lstrip()
+                spaces_in_first_line = len(content_before_match) - len(stripped_content)
+
+                # [
+                #   ":ref:`GS1 nomenclature list",
+                #   "   <barcode/operations/gs1_nomenclature/list>`",
+                # ]
+                second_line = reflink_str.split("\n")[1]
+                stripped_content = second_line.lstrip()
+                spaces_in_second_line = len(second_line) - len(stripped_content)
+
+                if spaces_in_first_line == spaces_in_second_line:
+                    break # Pass test, see ref-indented.rst
+
+                line_num = lines[:match.end()].count("\n") + 1
+                yield line_num, f"incorrect indenting spaces between reflink text and link, expected {spaces_in_first_line}, but found {spaces_in_second_line} spaces."
+                break
+
+            # Count the number of newline characters before the match + 1
+            line_num = lines[:start_idx].count("\n") + 1
+
+            yield line_num, f"incorrect spaces between reflink text and link, expected {1}, but found {trailing_whitespace_count} spaces."
+

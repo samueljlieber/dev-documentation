@@ -6,9 +6,9 @@ import pytest
 
 import sys
 import os
-sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
-from sphinxlint import main as mainsphinx
+# TODO: Make this work also in root documentation directory
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from main import main
 
