@@ -16,7 +16,38 @@ FORBIDDEN_HEADING_DELIMITER_RE = re.compile(
     '^(' + '|'.join(rf'\{char}+' for char in FORBIDDEN_HEADING_CHARS) + ')\n$'
 )
 GIT_CONFLICT_MARKERS = ['<' * 7, '>' * 7]
-
+ALLOWED_EARLY_BREAK_CHARS = [
+    # Lines that contain these characters are allowed to break early.
+    '.. seealso::',
+    '.. note::',
+    '.. tip::',
+    '.. example::',
+    '.. exercise::',
+    '.. important::',
+    '.. image::',
+    '.. warning::',
+    '.. danger::',
+    '.. spoiler::',
+    '.. rst-class::',
+    '.. list-table::',
+    ':header-rows:',
+    ':stub-columns:',
+    ':align:',
+    ':show-content:',
+    ':show-toc:',
+    ':code-column:',
+    ':hide-page-toc:',
+    ':custom-css:',
+    ':custom-js:',
+    ':classes:',
+    ':orphan:',
+    ':nosearch:',
+    ':alt:',
+    ':titlesonly:',
+]
+EARLY_BREAK_CHARS_RE = re.compile(
+    r'^\s*(%s)\s+' % '|'.join(ALLOWED_EARLY_BREAK_CHARS), re.IGNORECASE
+)
 
 @sphinxlint.checker('.rst')
 def check_heading_delimiters_characters(file, lines, options=None):
@@ -109,3 +140,54 @@ def check_git_conflict_markers(file, lines, options=None):
     for lno, line in enumerate(lines):
         if any(marker in line for marker in GIT_CONFLICT_MARKERS):
             yield lno + 1, "the git conflict should be resolved"
+
+
+@sphinxlint.checker('.rst', enabled=False, rst_only=True)
+def check_early_line_breaks(file, lines, options=None):
+    """
+        Check that all lines dont break early.
+        - For current and next line, check if it is valid for early breaks.
+        - If so, store the current line's remaining space and store the next line's first word'.
+          - If the next line doesnt start with a space, store the next line's first word.
+            Otherwise, get the next line's first word by removing formatting characters.
+        - If the next line's first word can fit on the current line, message the user.
+
+        *~*~* Made with the help of GitHub Copilot *~*~*
+    """
+    def is_valid_line(line, type): # type 0 = current line, type 1 = next line
+        if type == 1:
+            return not EARLY_BREAK_CHARS_RE.match(line) \
+                and not HEADING_DELIMITER_RE.search(line) \
+                and not line.startswith("\n") \
+                and not line.lstrip().startswith(("+", "|", "-", "*", "#.")) \
+                and len(line) <= options.max_line_length
+        else:
+            return not EARLY_BREAK_CHARS_RE.match(line) \
+                and not HEADING_DELIMITER_RE.search(line) \
+                and not line.startswith("\n") \
+                and not line.lstrip().startswith(("+", "|")) \
+                and len(line) <= options.max_line_length
+
+    def get_next_line_first_word(next_line):
+        if next_line.startswith(" "):
+            next_line_dict = {
+                "*": lambda x: x.split("* ", 1)[0],
+                "-": lambda x: x.split("- ", 1)[0],
+                "#.": lambda x: x.split("#. ", 1)[0],
+                "default": lambda x: x.split(" ", 1)[0]
+            }
+            return next_line_dict.get(
+                next_line.lstrip()[:2], next_line_dict["default"]
+            )(next_line.lstrip())
+        else:
+            return next_line.split(" ", 1)[0]
+
+    for lno, current_line in enumerate(lines):
+        if lno + 1 < len(lines):
+            next_line = lines[lno + 1]
+            if is_valid_line(current_line, 0) and is_valid_line(next_line, 1):
+                current_line_remaining_space = options.max_line_length - len(current_line)
+                next_line_first_word = get_next_line_first_word(next_line)
+                if current_line_remaining_space > len(next_line_first_word):
+                    yield lno + 1, f"line breaks too early. " \
+                        f"Move \"{next_line_first_word}\" to line {lno + 1}."

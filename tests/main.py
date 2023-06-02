@@ -52,6 +52,7 @@ Base checkers:
 
 Optional checkers:
 - line-too-long: Check for line length; this checker is not run by default.
+- early-line-break: Check for early line breaks; this checker is not run by default.
 
 Custom checkers:
 - all the checkers defined in checkers/* files

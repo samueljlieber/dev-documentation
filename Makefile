@@ -86,3 +86,8 @@ static: $(HTML_BUILD_DIR)/_static/style.css
 
 test:
 	@python tests/main.py $(SOURCE_DIR)/administration $(SOURCE_DIR)/applications $(SOURCE_DIR)/contributing $(SOURCE_DIR)/developer $(SOURCE_DIR)/services redirects
+
+review:
+	@read -p "Enter file or folder path: " path; \
+	read -p "Enter max line length: " line_length; \
+	python tests/main.py -e line-too-long -e early-line-breaks --max-line-length=$$line_length $$path
