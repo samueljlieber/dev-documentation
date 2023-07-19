@@ -7,13 +7,19 @@ When a new employee is hired, the first step is to create a new employee form. S
 employee form. Fill out the required information (underlined in bold) and any additional details,
 then click :guilabel:`Save`.
 
+Aenean aliquet, magna sit amet vulputate vestibulum, magna tortor pharetra velit, n dhsjs
+:menuselection:`Employees` app default view, click the :guilabel:`Create` button to access a new
+employee form. Fill out the required information (underlined in bold) and any additional details,
+then click :guilabel:`Save`.
+
 .. image:: new_employee/employee-new.png
    :align: center
    :alt: Create a new employee card.
 
 .. note::
    The current company phone number and name is populated in the :guilabel:`Work Phone` and
-   :guilabel:`Company` fields.
+   :guilabel:`Company` fields. Donec ultricies quam quis mauris mattis, sed laoreet massa efficitur.
+   Donec ultricies quam quis mauris mattis, sed laoreet massa efficitur.
 
 General information
 ===================
