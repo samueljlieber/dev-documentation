@@ -5,6 +5,10 @@
 Email marketing
 ===============
 
+This is the first change to the document. It is a really good sentence!
+I added this sentence too because I thought it was cool.
+Also adding this sentence because bad sentences ROCK!
+
 Emails are an effective, fully-customizable form of communication that are able to reach any target
 audience - large or small. The success of an email is easily measurable, especially when a creative
 call-to-action is involved.
