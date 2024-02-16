@@ -8,6 +8,8 @@
 @import "scss/_mixins";
 @import "scss/_typography";
 @import "scss/_iconfont";
+@import "scss/_odoo_ui_icon";
+@import "scss/_font_awesome";
 
 div[aria-label="related navigation"] {
     display: none;
@@ -754,6 +756,18 @@ article.doc-body {
 
                 code {
                     overflow-wrap: break-word;
+                }
+            }
+        }
+
+        table.table-columns > tbody > tr > td {
+            column-count: 1;
+
+            @include media-breakpoint-up(lg) {
+                    column-count: 2;
+
+                @include media-breakpoint-up(xl) {
+                        column-count: 3;
                 }
             }
         }
