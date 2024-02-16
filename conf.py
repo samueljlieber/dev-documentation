@@ -172,6 +172,8 @@ extensions = [
 
     # Strange html domain logic used in memento pages
     'html_domain',
+
+    'icons',
 ]
 
 if odoo_dir_in_path:
@@ -271,6 +273,9 @@ html_permalinks = True
 # Lists are empty because the files are specified in extensions/themes.
 html_js_files = []
 html_css_files = []
+
+odoo_ui_icon_path = 'extensions/odoo_theme/static/scss/_odoo_ui_icon.scss'
+font_awesome_icon_path = 'extensions/odoo_theme/static/scss/_font_awesome.scss'
 
 # PHP lexer option to not require <?php
 highlight_options = {
