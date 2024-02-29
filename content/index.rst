@@ -4,6 +4,7 @@
 Odoo Documentation
 ==================
 
+test
 
 .. toctree::
 
